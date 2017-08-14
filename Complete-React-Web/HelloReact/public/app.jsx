@@ -5,20 +5,27 @@ var Greeter = React.createClass({
       message: 'This is the default message!'
     };
   },
-  
-  /* Event object*/
-  onButtonClick: function(e){
-
-    /*avoid page refresh after submiting the form */
+  getInitialState: function () {
+    return {
+        name: this.props.name
+    };
+  },
+  onButtonClick: function (e) {
     e.preventDefault();
 
-    var name = this.refs.name.value;
+    var nameRef = this.refs.name;
+    /* cleaning the input text */
+    var name = nameRef.value;
+    nameRef.value = '';
 
-    alert(name);
+    if (typeof name === 'string' && name.length > 0) {
+      this.setState({
+        name: name
+      });
+    }
   },
-
   render: function () {
-    var name = this.props.name;
+    var name = this.state.name;
     var message = this.props.message;
 
     return (
@@ -30,7 +37,6 @@ var Greeter = React.createClass({
           <input type="text" ref="name"/>
           <button>Set Name</button>
         </form>
-
       </div>
     );
   }
