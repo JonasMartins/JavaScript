@@ -16,12 +16,14 @@ console.log(filterArray);
 /*Saida: ['test',1,2,3,4,5], retirando as duplicatas */
 
 
-//var res = notes.addNote();
-//console.log(res);
 
-//console.log('Result: ', notes.add(17,-5));
 
 /*
+
+var res = notes.addNote();
+console.log(res);
+console.log('Result: ', notes.add(17,-5));
+
 
 var user = os.userInfo();
 //console.log(user);
