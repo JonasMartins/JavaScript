@@ -1,11 +1,20 @@
-//import './../imports/utils';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {
+  Meteor
+} from 'meteor/meteor';
+/**
+ * [startup description]
+ * @param  {[type]} funcrion( [description]
+ * @return {[type]}           [description]
+ *
+ * app vem do id do arquivo main.html
+ * 
+ */
+Meteor.startup(function() {
 
-import someDefault, {greetUser, name} from './../imports/utils';
+  let name = 'Andrew';
+  let jsx = <p>Hello {name}!</p>;
 
-/* someDefault é a variável dafault no arquivo utils */
-
-console.log('Log from /client/main.js');
-
-console.log(greetUser());
-
-console.log(someDefault);
+  ReactDOM.render(jsx, document.getElementById('app'));
+});
