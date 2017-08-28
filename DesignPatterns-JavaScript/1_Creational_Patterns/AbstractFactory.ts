@@ -87,4 +87,4 @@ courtSession1.complaintPresented({ severity: 12});
 
 var courtSession2 = new Westeros.Ruling.CourtSession(new Westeros.Ruling.Lannister.LannisterFactory());
 courtSession2.complaintPresented({ severity: 8});
-courtSession2.complaintPresented({ severity: 12});
+courtSession2.complaintPresented({ severity: 12});  
