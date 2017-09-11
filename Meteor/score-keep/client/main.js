@@ -30,6 +30,21 @@ const renderPlayers = function(playersList){
  * Só pode haver um root element, ou seja apenas um div, 
  * podem haver vários outros elemetnos desse div root
  */
+
+const handleSubmit = function(e) {
+  let playerName = e.target.playerName.value;
+  e.preventDefault();
+  // se a entrada não estiver vazia, ou seja, o nome do player for diferente de ''
+  if (playerName) {
+    e.target.playerName.value = '';
+    // players insert 
+    Players.insert({
+      name: playerName,
+      score: 0
+    });
+  }
+};
+
 Meteor.startup(function() {
 
 
@@ -40,22 +55,22 @@ Meteor.startup(function() {
     let title = 'Score Keep';
     let name = 'Andrew';
     let jsx = (
-      
+    
+
       <div>
         <h1>{title}</h1>
         <p>Hello {name}!</p>
       
         {renderPlayers(players)}
         
+        <fomr onSubmit={handleSubmit}>
+          <input type="text" name="playerName" placeholder="Player Name"/>
+          <button>Add Player</button>
+        </form>
+
       </div>     
       
       );
     ReactDOM.render(jsx, document.getElementById('app'));
   });
-
-  Players.insert({
-    name: 'Jen',
-    score: 1
-  });
-
 });
